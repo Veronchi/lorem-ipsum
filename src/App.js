@@ -4,8 +4,16 @@ function App() {
   
   
   return (
-  <h2>lorem ipsum project setup</h2>
-    )
+    <section className='section-center'>
+      <h3>tired of boring lorem ipsum?</h3>
+      <form className='lorem-form'>
+        <label for='amount'>paragraphs:</label>
+        <input type='number' name='amount' id='amount' value={0}></input>
+        <button className='btn'>generate</button>
+      </form>
+      <article className='lorem-text'></article>
+    </section>
+  );
 }
 
 export default App;
