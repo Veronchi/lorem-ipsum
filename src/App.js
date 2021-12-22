@@ -8,24 +8,25 @@ function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  }
+    let amount = parseInt(inputValue);
 
-  const generater = () => {
-    let arr = [];
-    for (let i = 0; i <= inputValue; i++) {
-      arr.push(textData[i - 1])
+    if(inputValue <= 0) {
+      amount = 1;
+    }
+    if(inputValue > 8) {
+      amount = 8;
     }
 
-    setParagraphs(arr);
+    setParagraphs(textData.slice(0, amount));
   }
 
   return (
     <section className='section-center'>
       <h3>tired of boring lorem ipsum?</h3>
-      <form className='lorem-form' onSubmit={(e) => handleSubmit(e)}>
+      <form className='lorem-form' onSubmit={handleSubmit}>
         <label htmlFor='amount'>paragraphs:</label>
         <input type='number' name='amount' id='amount' value={inputValue} onChange={(e) => setInputValue(e.target.value)}></input>
-        <button className='btn' onClick={() => generater()}>generate</button>
+        <button className='btn'>generate</button>
       </form>
       <article className='lorem-text'>
         {paragraphs.map((p, id) => {
