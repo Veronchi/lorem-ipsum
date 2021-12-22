@@ -6,12 +6,6 @@ function App() {
   const [inputValue, setInputValue] = useState(0);
   const [paragraphs, setParagraphs] = useState([]);
 
-  const handleChange = (event) => {
-    const targetValue = event.target.value;
-
-    setInputValue(targetValue);
-  }
-
   const handleSubmit = (event) => {
     event.preventDefault();
   }
@@ -30,7 +24,7 @@ function App() {
       <h3>tired of boring lorem ipsum?</h3>
       <form className='lorem-form' onSubmit={(e) => handleSubmit(e)}>
         <label htmlFor='amount'>paragraphs:</label>
-        <input type='number' name='amount' id='amount' value={inputValue} onChange={(e) => handleChange(e)}></input>
+        <input type='number' name='amount' id='amount' value={inputValue} onChange={(e) => setInputValue(e.target.value)}></input>
         <button className='btn' onClick={() => generater()}>generate</button>
       </form>
       <article className='lorem-text'>
